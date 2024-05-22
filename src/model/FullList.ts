@@ -59,4 +59,14 @@ export default class FullList implements List {
     this._list = this._list.filter((item) => item.id !== id)
     this.save() //updates our local storage
   }
+
+  addItem(itemObj: ListItem): void {
+    this._list.push(itemObj)
+    this.save()
+  }
+
+  clearList(): void {
+    this._list = []
+    this.save()
+  }
 }
