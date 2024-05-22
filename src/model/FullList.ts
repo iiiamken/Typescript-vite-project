@@ -60,11 +60,22 @@ export default class FullList implements List {
     this.save() //updates our local storage
   }
 
+  /**
+   * Adds a new item to the list and saves the changes to the local storage.
+   *
+   * @param {ListItem} itemObj - The item object to be added to the list.
+   * @return {void} This function does not return anything.
+   */
   addItem(itemObj: ListItem): void {
     this._list.push(itemObj)
     this.save()
   }
 
+  /**
+   * Clears the list and saves the changes to the local storage.
+   *
+   * @return {void} This function does not return anything.
+   */
   clearList(): void {
     this._list = []
     this.save()
