@@ -31,4 +31,8 @@ export default class FullList implements List {
   save(): void {
     localStorage.setItem("list", JSON.stringify(this._list))
   }
+
+  removeItem(id: string): void {
+    this._list = this._list.filter((item) => item.id !== id)
+  }
 }
