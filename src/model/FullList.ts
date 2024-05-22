@@ -14,7 +14,21 @@ export default class FullList implements List {
 
   constructor(private _list: ListItem[] = []) {}
 
+  /**
+   * Returns the list of ListItems.
+   *
+   * @return {ListItem[]} The list of ListItems.
+   */
   get list(): ListItem[] {
     return this._list
+  }
+
+  /**
+   * Saves the list to the local storage by converting it to a JSON string and storing it under the key "list".
+   *
+   * @return {void} This function does not return anything.
+   */
+  save(): void {
+    localStorage.setItem("list", JSON.stringify(this._list))
   }
 }
