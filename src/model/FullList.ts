@@ -23,6 +23,11 @@ export default class FullList implements List {
     return this._list
   }
 
+  /**
+   * Loads the list from the local storage and adds each item to the FullList instance.
+   *
+   * @return {void} This function does not return anything.
+   */
   load(): void {
     const storedList: string | null = localStorage.getItem("list")
     if (typeof storedList !== "string") return
