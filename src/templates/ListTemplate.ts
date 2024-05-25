@@ -25,7 +25,7 @@ export default class ListTemplate implements DOMList {
       //create a new list item
       const li = document.createElement("li") as HTMLLIElement
 
-      //add a class to the list item   
+      //add a class to the list item
       li.className = "item"
 
       //create a checkbox
@@ -41,12 +41,28 @@ export default class ListTemplate implements DOMList {
         item.checked = !item.checked
         fullList.save()
 
-        //create a label
+        //create a label to add to each list item
         const label = document.createElement("label") as HTMLLabelElement
         label.htmlFor = item.id
         label.textContent = item.item
         li.append(label)
-        
+
+        //create a button to remove each list item
+        const button = document.createElement("button") as HTMLButtonElement
+        button.className = "button"
+        button.textContent = "X"
+        button.addEventListener("click", () => {
+          fullList.removeItem(item.id)
+        })
+        li.append(button)
+
+        button.addEventListener("click", () => {
+          fullList.removeItem(item.id)
+          this.render(fullList)
+        })
+        // adds the list item to the list
+        this.ul.append(li)
       })
     })
+  }
 }
