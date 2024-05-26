@@ -45,5 +45,4 @@ const initApp = (): void => {
   //init render the list
   template.render(fullList)
 }
-
 document.addEventListener("DOMContentLoaded", initApp)

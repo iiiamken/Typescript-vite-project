@@ -29,7 +29,7 @@ export default class FullList implements List {
    * @return {void} This function does not return anything.
    */
   load(): void {
-    const storedList: string | null = localStorage.getItem("list")
+    const storedList: string | null = localStorage.getItem("myList")
     if (typeof storedList !== "string") return
     //created similar type to ListItem but with underscores
     const parsedList: { _id: string; _item: string; _checked: boolean }[] =
@@ -51,7 +51,7 @@ export default class FullList implements List {
    * @return {void} This function does not return anything.
    */
   save(): void {
-    localStorage.setItem("list", JSON.stringify(this._list))
+    localStorage.setItem("myList", JSON.stringify(this._list))
   }
 
   /**
