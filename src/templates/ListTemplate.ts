@@ -23,7 +23,7 @@ export default class ListTemplate implements DOMList {
     this.clear()
 
     //for each item in the list
-    fullList.list.map((item) => {
+    fullList.list.forEach((item) => {
       //create a new list item
       const li = document.createElement("li") as HTMLLIElement
 
@@ -53,9 +53,6 @@ export default class ListTemplate implements DOMList {
         const button = document.createElement("button") as HTMLButtonElement
         button.className = "button"
         button.textContent = "X"
-        button.addEventListener("click", () => {
-          fullList.removeItem(item.id)
-        })
         li.append(button)
 
         button.addEventListener("click", () => {

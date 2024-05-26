@@ -13,7 +13,7 @@ const initApp = (): void => {
   ) as HTMLFormElement
   //added event listener to itemEntryForm
   itemEntryForm.addEventListener("submit", (event: SubmitEvent): void => {
-    event.preventDefault
+    event.preventDefault()
 
     const input = document.getElementById("newItem") as HTMLInputElement
     const newEntryText: string = input.value.trim()
