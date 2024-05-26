@@ -21,11 +21,11 @@ const initApp = (): void => {
     if (!newEntryText.length) return
 
     const itemId: number = fullList.list.length
-      ? parseInt(fullList.list[fullList.list.length + 1].id + 1)
+      ? parseInt(fullList.list[fullList.list.length - 1].id) + 1
       : 1
 
     const newItem = new ListItem(itemId.toString(), newEntryText)
-    //add item to list
+    //adds item to list
     fullList.addItem(newItem)
     //re-render the list
     template.render(fullList)
