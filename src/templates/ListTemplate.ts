@@ -42,26 +42,26 @@ export default class ListTemplate implements DOMList {
       check.addEventListener("change", () => {
         item.checked = !item.checked
         fullList.save()
-
-        //create a label to add to each list item
-        const label = document.createElement("label") as HTMLLabelElement
-        label.htmlFor = item.id
-        label.textContent = item.item
-        li.append(label)
-
-        //create a button to remove each list item
-        const button = document.createElement("button") as HTMLButtonElement
-        button.className = "button"
-        button.textContent = "X"
-        li.append(button)
-
-        button.addEventListener("click", () => {
-          fullList.removeItem(item.id)
-          this.render(fullList)
-        })
-        // adds the list item to the list
-        this.ul.append(li)
       })
+
+      //create a label to add to each list item
+      const label = document.createElement("label") as HTMLLabelElement
+      label.htmlFor = item.id
+      label.textContent = item.item
+      li.append(label)
+
+      //create a button to remove each list item
+      const button = document.createElement("button") as HTMLButtonElement
+      button.className = "button"
+      button.textContent = "X"
+      li.append(button)
+
+      button.addEventListener("click", () => {
+        fullList.removeItem(item.id)
+        this.render(fullList)
+      })
+      // adds the list item to the list
+      this.ul.append(li)
     })
   }
 }
